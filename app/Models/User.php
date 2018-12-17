@@ -14,18 +14,14 @@ class User extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function products()
-    {
-        return $this->belongsToMany(Product::class, 'comment_ratings')->withPivot(['content', 'parent_id', 'rating']);
-    }
-
     public function comment_ratings()
     {
         return $this->hasMany(CommentRating::class);
     }
 
-    public function shop()
+
+    public function shops()
     {
-        return $this->hasOne(Shop::class);
+        return $this->hasMany(Shop::class);
     }
 }
